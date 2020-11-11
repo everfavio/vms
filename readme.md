@@ -1,4 +1,4 @@
-### instalación y configuración de un cluster de servers
+### Instalación de instancias Debian con Vagrant
 instalamos los paquetes necesarios y vagrant
 ```
 sudo apt-get install vagrant
