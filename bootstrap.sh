@@ -14,7 +14,7 @@ useradd -m -s /bin/bash kubernetes
 ## establecemos la contraseña ('usuario:password')
 echo 'kubernetes:kubernetes' | chpasswd
 ## agregamos al nuevo usuario al grupo sudoers
-echo 'kubernetes  ALL=(ALL:ALL) ALL' >> /etc/sudoers
+echo 'kubernetes  ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 ## generamos las llaves ssh para habilitar la autenticación ssh
 sudo su kubernetes
 cd

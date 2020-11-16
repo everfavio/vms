@@ -6,6 +6,7 @@ Vagrant.configure("2") do |config|
     master1.vm.network :private_network, ip: "192.168.0.17"
     master1.vm.box = "debian/buster64"
     master1.vm.hostname = "master1"
+    master1.vm.boot_timeout = 500
     master1.vm.provision :shell, path: "bootstrap.sh"
     master1.vm.provider :virtualbox do |vb|
       vb.gui = false
@@ -17,6 +18,7 @@ Vagrant.configure("2") do |config|
     master2.vm.box = "debian/buster64"
     master2.vm.network :private_network, ip: "192.168.0.18"
     master2.vm.hostname = "master2"
+    master2.vm.boot_timeout = 500
     master2.vm.provision :shell, path: "bootstrap.sh"
     master2.vm.provider :virtualbox do |vb|
       vb.gui = false
@@ -28,6 +30,7 @@ Vagrant.configure("2") do |config|
     master3.vm.box = "debian/buster64"
     master3.vm.network :private_network, ip: "192.168.0.19"
     master3.vm.hostname = "master3"
+    master3.vm.boot_timeout = 500
     master3.vm.provision :shell, path: "bootstrap.sh"
     master3.vm.provider :virtualbox do |vb|
       vb.gui = false
@@ -40,10 +43,11 @@ Vagrant.configure("2") do |config|
     worker1.vm.network :private_network, ip: "192.168.0.20"
     worker1.vm.box = "debian/buster64"
     worker1.vm.hostname = "worker1"
+    worker1.vm.boot_timeout = 500
     worker1.vm.provision :shell, path: "bootstrap.sh"
     worker1.vm.provider :virtualbox do |vb|
       vb.gui = false
-      vb.customize ["modifyvm", :id, "--memory", "1024"]
+      vb.customize ["modifyvm", :id, "--memory", "2048"]
       vb.customize ["modifyvm", :id, "--cpus", "1"]
     end
   end
@@ -51,21 +55,35 @@ Vagrant.configure("2") do |config|
     worker2.vm.box = "debian/buster64"
     worker2.vm.network :private_network, ip: "192.168.0.21"
     worker2.vm.hostname = "worker2"
+    worker2.vm.boot_timeout = 500
     worker2.vm.provision :shell, path: "bootstrap.sh"
     worker2.vm.provider :virtualbox do |vb|
       vb.gui = false
-      vb.customize ["modifyvm", :id, "--memory", "1024"]
+      vb.customize ["modifyvm", :id, "--memory", "2048"]
       vb.customize ["modifyvm", :id, "--cpus", "1"]
     end
   end
   config.vm.define "worker3" do |worker3|
     worker3.vm.box = "debian/buster64"
-    worker3.vm.network :private_network, ip: "192.168.0.21"
+    worker3.vm.network :private_network, ip: "192.168.0.22"
     worker3.vm.hostname = "worker3"
+    worker3.vm.boot_timeout = 500
     worker3.vm.provision :shell, path: "bootstrap.sh"
     worker3.vm.provider :virtualbox do |vb|
       vb.gui = false
-      vb.customize ["modifyvm", :id, "--memory", "1024"]
+      vb.customize ["modifyvm", :id, "--memory", "2048"]
+      vb.customize ["modifyvm", :id, "--cpus", "1"]
+    end
+  end
+  config.vm.define "worker4" do |worker4|
+    worker4.vm.box = "debian/buster64"
+    worker4.vm.network :private_network, ip: "192.168.0.23"
+    worker4.vm.hostname = "worker4"
+    worker4.vm.boot_timeout = 500
+    worker4.vm.provision :shell, path: "bootstrap.sh"
+    worker4.vm.provider :virtualbox do |vb|
+      vb.gui = false
+      vb.customize ["modifyvm", :id, "--memory", "2048"]
       vb.customize ["modifyvm", :id, "--cpus", "1"]
     end
   end
