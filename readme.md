@@ -48,11 +48,6 @@ worker3       192.168.0.22
 
 la idea es que desde este punto se tenga un ambiente predefinido para ejecutar kubespray y realizar posteriores ejercicios de administración del cluster, como agregaar o quitar nodos.
 
-TODO:
-- parametrizar todo lo que se pueda y optimizar los procesos repetitivos del vagrantfile.
-- mejorar el archivo bootstrap.sh
-- hacer un readme mas digno xD
-
 ### instalación del clúster con Kubespray
 
 Una ves los boxes definidos en nuestro vagranfile procedemos a la instalación de nuestro cluster con kubespray

@@ -75,16 +75,16 @@ Vagrant.configure("2") do |config|
       vb.customize ["modifyvm", :id, "--cpus", "1"]
     end
   end
-  config.vm.define "worker4" do |worker4|
-    worker4.vm.box = "debian/buster64"
-    worker4.vm.network :private_network, ip: "192.168.0.23"
-    worker4.vm.hostname = "worker4"
-    worker4.vm.boot_timeout = 500
-    worker4.vm.provision :shell, path: "bootstrap.sh"
-    worker4.vm.provider :virtualbox do |vb|
-      vb.gui = false
-      vb.customize ["modifyvm", :id, "--memory", "2048"]
-      vb.customize ["modifyvm", :id, "--cpus", "1"]
-    end
-  end
+  # config.vm.define "worker4" do |worker4|
+  #   worker4.vm.box = "debian/buster64"
+  #   worker4.vm.network :private_network, ip: "192.168.0.23"
+  #   worker4.vm.hostname = "worker4"
+  #   worker4.vm.boot_timeout = 500
+  #   worker4.vm.provision :shell, path: "bootstrap.sh"
+  #   worker4.vm.provider :virtualbox do |vb|
+  #     vb.gui = false
+  #     vb.customize ["modifyvm", :id, "--memory", "2048"]
+  #     vb.customize ["modifyvm", :id, "--cpus", "1"]
+  #   end
+  # end
 end
